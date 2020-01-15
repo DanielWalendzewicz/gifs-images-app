@@ -16,7 +16,6 @@ const GraphicsSearcher = React.memo(props => {
             return response.json();
         })
         .then(responseData => {
-            console.log(responseData)
             setFilteredImages(responseData);
         });
         fetch(`/api/giphy/gifs/${enteredFilter}`)
@@ -24,7 +23,6 @@ const GraphicsSearcher = React.memo(props => {
             return response.json();
         })
         .then(responseData => {
-            console.log(responseData)
             setFilteredGifs(responseData);
         });
        }
