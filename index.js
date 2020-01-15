@@ -1,5 +1,5 @@
 const express = require('express');
-const fetch = require("node-fetch")
+const fetch = require("node-fetch");
 const app = express();
 
 app.get('/api/pixabay/images/:searchName', (req, res) => {
@@ -10,8 +10,8 @@ app.get('/api/pixabay/images/:searchName', (req, res) => {
 
     fetch(API_URL)
     .then(response => response.json())
-    .then(data => {
-        res.send(data)
+    .then(responseData => {
+        res.send(responseData.hits)
     })
 });
 
@@ -19,14 +19,14 @@ app.get('/api/giphy/gifs/:searchName', (req, res) => {
     const GIPHY_API_KEY = 'NwImpGK5r6TWe03uHoKYAJy0huSSLuc2'
     const GIPHY_API = 'http://api.giphy.com/v1/gifs/search?';
     const updatedSearchName = '&q=' + req.params.searchName.replace(' ', '+');
-    const resourcesLimit = '&limit=5'
+    const resourcesLimit = '&limit=10'
     const API_URL = GIPHY_API + updatedSearchName + '&api_key=' + GIPHY_API_KEY + resourcesLimit;
 
     fetch(API_URL)
     .then(response => response.json())
-    .then(data => {
-        res.send(data)
+    .then(responseData => {
+        res.send(responseData.data)
     })
 });
 
-app.listen(3000, () => console.log('Listening on port 3000..'))
+app.listen(3000, () => console.log('Listening on port 3000..'));

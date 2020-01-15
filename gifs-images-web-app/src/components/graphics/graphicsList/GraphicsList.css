@@ -1,0 +1,24 @@
+.graphicsList {
+  width: 60rem;
+  height: 25rem;
+  max-width: 80%;
+  margin: auto;
+  padding: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+img {
+    margin: 5px;
+}
+
+@media (min-width: 768px) {
+  .graphicsList {
+    height: 30rem;
+    padding: 0.5rem;
+  }
+}
